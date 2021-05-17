@@ -10,7 +10,7 @@ public class TehnickiPregledDAO {
     private Connection conn;
     private static TehnickiPregledDAO instance;
 
-    private PreparedStatement sviKorisniciUpit;
+    private PreparedStatement sviKorisniciUpit, kreirajAdministratoraUpit, maxIdUpit;
     public static TehnickiPregledDAO getInstance() {
         if (instance == null) instance = new TehnickiPregledDAO();
         return instance;
@@ -34,6 +34,13 @@ public class TehnickiPregledDAO {
                 } catch (SQLException e1) {
                 e1.printStackTrace();
             }
+        }
+
+        try{
+            kreirajAdministratoraUpit = conn.prepareStatement("insert into Korisnik(id, ime, prezime, ime_oca, jmbg, datum_polaganja_strucnog_ispita, mjesto_polaganja_strucnog_ispita, broj_licence, datum_roka_vazenja_licence, tip) values (?,?,?,?,?,?,?,?,?,?)");
+            maxIdUpit = conn.prepareStatement("select MAX(id)+1 from Korisnik");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
     public Connection getConn() {
@@ -80,6 +87,31 @@ public class TehnickiPregledDAO {
         }
     }
 
+
+    public void addKorisnik(Korisnik korisnik){
+        ResultSet rs = null;
+        try {
+            rs = maxIdUpit.executeQuery();
+            int id = 1;
+            if (rs.next()) {
+                id = rs.getInt(1);
+            }
+
+            kreirajAdministratoraUpit.setInt(1, id);
+            kreirajAdministratoraUpit.setString(2, korisnik.getIme());
+            kreirajAdministratoraUpit.setString(3, korisnik.getPrezime());
+            kreirajAdministratoraUpit.setString(4, korisnik.getImeOca());
+            kreirajAdministratoraUpit.setInt(5, korisnik.getJmbg());
+            kreirajAdministratoraUpit.setDate(6, Date.valueOf(korisnik.getDatumPolaganjaStrucnogIspita()));
+            kreirajAdministratoraUpit.setString(7, korisnik.getMjestoPolaganjaStrucnog());
+            kreirajAdministratoraUpit.setInt(8, korisnik.getBrojLicence());
+            kreirajAdministratoraUpit.setDate(9, Date.valueOf(korisnik.getRokVazenjaLicence()));
+            kreirajAdministratoraUpit.setString(10, korisnik.getTipKorisnika());
+            kreirajAdministratoraUpit.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 
 
 }

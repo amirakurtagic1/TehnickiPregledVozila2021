@@ -85,7 +85,6 @@ public class KorisnikController {
 
         if(cmbTipKorisnika.getSelectionModel().getSelectedItem().equals("Tehničar") && (fldIme.getText().equals("") || fldPrezime.getText().equals("") || fldImeOca.equals("") || fldJMBG.getText().equals("") || fldMjestoPolaganjaIspita.getText().equals("") || fldBrojLicence.getText().equals("") ||
                 dateDatumVazenjaLicence.getValue().isAfter(LocalDate.now()) || dateDatumPolaganjaIspita.getValue().isAfter(LocalDate.now()))){
-            validacijaNonTehnicar();
             validacijaTehnicar();
             return false;
         }
@@ -99,6 +98,7 @@ public class KorisnikController {
     }
 
     private void validacijaTehnicar(){
+        validacijaNonTehnicar();
         if(fldBrojLicence.getText().equals("")){
             fldBrojLicence.getStyleClass().remove("ispravno");
             fldBrojLicence.getStyleClass().add("neispravno");
@@ -167,6 +167,9 @@ public class KorisnikController {
     }
 
     public void onActionPotvrdi(ActionEvent actionEvent) {
-        if(validacija() == true) ((Stage)imgView.getScene().getWindow()).close();
+        if(validacija() == true && cmbTipKorisnika.getValue().equals("Tehničar")) {
+            dao.addKorisnik(new Korisnik(fldIme.getText(), fldPrezime.getText(), fldImeOca.getText(), Integer.parseInt(fldJMBG.getText()), dateDatumPolaganjaIspita.getValue(), fldMjestoPolaganjaIspita.getText(),Integer.parseInt(fldBrojLicence.getText()), dateDatumVazenjaLicence.getValue(), cmbTipKorisnika.getSelectionModel().getSelectedItem().toString()));
+            ((Stage)imgView.getScene().getWindow()).close();
+        }
     }
 }
