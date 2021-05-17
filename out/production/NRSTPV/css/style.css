@@ -10,6 +10,9 @@
     -fx-graphic: url("/img/resizeimage.jpg");
 }
 
-#proba{
+.ispravno{
     -fx-background-color: lightgreen;
+}
+.neispravno{
+    -fx-background-color: lightpink;
 }
