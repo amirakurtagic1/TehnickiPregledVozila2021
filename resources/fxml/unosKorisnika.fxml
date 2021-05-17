@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="721.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.nrs.projekat.KorisnikController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -39,7 +30,7 @@
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="6" GridPane.rowSpan="2">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
@@ -60,7 +51,7 @@
             </Label>
             <Label text="Ime:">
                <VBox.margin>
-                  <Insets left="10.0" top="17.0" />
+                  <Insets left="10.0" top="20.0" />
                </VBox.margin>
             </Label>
             <Label text="Prezime:">
@@ -70,7 +61,7 @@
             </Label>
             <Label text="Ime oca:">
                <VBox.margin>
-                  <Insets left="10.0" top="17.0" />
+                  <Insets left="10.0" top="20.0" />
                </VBox.margin>
             </Label>
             <Label text="JMBG:">
@@ -80,17 +71,17 @@
             </Label>
             <Label text="Datum polaganja stručnog ispita:">
                <VBox.margin>
-                  <Insets left="10.0" top="17.0" />
+                  <Insets left="10.0" top="20.0" />
                </VBox.margin>
             </Label>
             <Label text="Mjesto polaganja stručnog ispita:">
                <VBox.margin>
-                  <Insets left="10.0" top="17.0" />
+                  <Insets left="10.0" top="20.0" />
                </VBox.margin>
             </Label>
             <Label text="Broj licence:">
                <VBox.margin>
-                  <Insets left="10.0" top="17.0" />
+                  <Insets left="10.0" top="20.0" />
                </VBox.margin>
             </Label>
             <Label text="Datum roka važenja licence:">
@@ -102,51 +93,51 @@
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="9">
          <children>
-            <ComboBox prefWidth="210.0" />
-            <TextField>
+            <ComboBox fx:id="cmbTipKorisnika" prefWidth="210.0" />
+            <TextField fx:id="fldIme">
                <VBox.margin>
                   <Insets right="150.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField>
+            <TextField fx:id="fldPrezime">
                <VBox.margin>
                   <Insets right="150.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField>
+            <TextField fx:id="fldImeOca">
                <VBox.margin>
                   <Insets right="150.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField>
+            <TextField fx:id="fldJMBG">
                <VBox.margin>
                   <Insets right="150.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <DatePicker prefWidth="210.0">
+            <DatePicker fx:id="dateDatumPolaganjaIspita" prefWidth="210.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </DatePicker>
-            <TextField>
+            <TextField fx:id="fldMjestoPolaganjaIspita">
                <VBox.margin>
                   <Insets right="150.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField>
+            <TextField fx:id="fldBrojLicence">
                <VBox.margin>
                   <Insets right="150.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <DatePicker prefWidth="210.0">
+            <DatePicker fx:id="dateDatumVazenjaLicence" prefWidth="210.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </DatePicker>
             <ButtonBar prefHeight="40.0" prefWidth="249.0">
               <buttons>
-                <Button mnemonicParsing="false" text="Otkaži" />
-                  <Button mnemonicParsing="false" text="Potvrdi" />
+                <Button fx:id="btnOtkazi" mnemonicParsing="false" onAction="#onActionOtkazi" text="Otkaži" />
+                  <Button fx:id="btnPotvrdi" mnemonicParsing="false" onAction="#onActionPotvrdi" text="Potvrdi" />
               </buttons>
                <VBox.margin>
                   <Insets right="50.0" top="50.0" />

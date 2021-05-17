@@ -19,8 +19,9 @@ public class TehnickiPregledDAO {
 
     private TehnickiPregledDAO(){
         try {
-            conn = DriverManager.getConnection("jdbc:sqlite:Korisnik.db");
-        } catch (SQLException e) {
+            Class.forName("org.sqlite.JDBC");
+            conn = DriverManager.getConnection("jdbc:sqlite:tpv.db");
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
