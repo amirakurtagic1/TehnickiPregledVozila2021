@@ -1,0 +1,15 @@
+#poruka{
+    -fx-text-fill: red;
+}
+#button{
+    -fx-background-color: #8A2BE2;
+    -fx-text-fill: white;
+}
+
+#imgView {
+    -fx-graphic: url("/img/resizeimage.jpg");
+}
+
+#proba{
+    -fx-background-color: lightgreen;
+}

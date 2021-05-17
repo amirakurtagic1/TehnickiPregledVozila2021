@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.nrs.projekat.Controller">
+    <stylesheets>
+        <URL value="@/css/style.css" />
+    </stylesheets>
+    <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="338.0" prefWidth="430.0" GridPane.columnSpan="2" GridPane.rowSpan="5">
+         <children>
+            <ImageView id="imgView" fx:id="imgView" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets left="175.0" top="35.0" />
+               </VBox.margin>
+            </ImageView>
+            <TextField fx:id="fldUsername" alignment="TOP_CENTER" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0" promptText="Username">
+               <VBox.margin>
+                  <Insets left="100.0" right="100.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="fldPassword" alignment="TOP_CENTER" minWidth="186.0" prefHeight="26.0" prefWidth="100.0" promptText="Password">
+               <VBox.margin>
+                  <Insets left="100.0" right="100.0" top="10.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Label id="poruka" fx:id="porukaLogin">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="100.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button id="button" fx:id="btnDalje" mnemonicParsing="false" onAction="#onActionDalje" prefHeight="24.0" prefWidth="150.0" text="Prijava">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="150.0" right="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</GridPane>
