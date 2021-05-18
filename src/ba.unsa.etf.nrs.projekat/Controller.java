@@ -17,7 +17,7 @@ import java.io.IOException;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class Controller {
-    public TextField fldUsername;
+    public TextField fldEmail;
     public PasswordField fldPassword;
     public Label porukaLogin;
     public Button btnDalje;
@@ -31,6 +31,9 @@ public class Controller {
     public void onActionDalje(ActionEvent actionEvent) throws IOException {
         Stage myStage = new Stage();
         if (validacija() == true) {
+
+            fldEmail.setText("");
+            fldPassword.setText("");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/glavna.fxml"));
             Parent root = loader.load();
             myStage.setTitle("Tehnički pregled vozila");
@@ -42,21 +45,21 @@ public class Controller {
 
     private boolean validacija() {
         //System.out.println("Evo sta ispisuje" + fldPassword.getText());
-        if (fldUsername.getText().equals("") || fldUsername.getText().equals(null)) {
+        if (fldEmail.getText().equals("") || fldEmail.getText().equals(null)) {
             porukaLogin.setText("Neispravni podaci!");
             if (fldPassword.getText().equals("") || fldPassword.getText().equals(null)) {
                 fldPassword.setStyle("-fx-background-color: lightpink");
             }
-            fldUsername.setStyle("-fx-background-color: lightpink");
+            fldEmail.setStyle("-fx-background-color: lightpink");
             return false;
-        } else fldUsername.setStyle("-fx-background-color: lightgreen");
+        } else fldEmail.setStyle("-fx-background-color: lightgreen");
         if (fldPassword.getText().equals("") || fldPassword.getText().equals(null)) {
             porukaLogin.setText("Neispravni podaci!");
             fldPassword.setStyle("-fx-background-color: lightpink");
             return false;
         } else fldPassword.setStyle("-fx-background-color: lightgreen");
         porukaLogin.setText("");
-        fldUsername.setStyle("-fx-background-color: lightgreen");
+        fldEmail.setStyle("-fx-background-color: lightgreen");
         fldPassword.setStyle("-fx-background-color: lightgreen");
 
         return true;

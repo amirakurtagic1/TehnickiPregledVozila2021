@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class KorisnikController {
     public ImageView imgView;
@@ -99,7 +100,7 @@ public class KorisnikController {
 
     private void validacijaTehnicar(){
         validacijaNonTehnicar();
-        if(fldBrojLicence.getText().equals("")){
+        if(fldBrojLicence.getText().equals("") || !Pattern.matches("^[0-9]+$", fldBrojLicence.getText())){
             fldBrojLicence.getStyleClass().remove("ispravno");
             fldBrojLicence.getStyleClass().add("neispravno");
         } else {
@@ -153,7 +154,7 @@ public class KorisnikController {
             fldImeOca.getStyleClass().remove("neispravno");
             fldImeOca.getStyleClass().add("ispravno");
         }
-        if(fldJMBG.getText().equals("")){
+        if(fldJMBG.getText().equals("") || !Pattern.matches("^[0-9]+$", fldJMBG.getText())){
             fldJMBG.getStyleClass().remove("ispravno");
             fldJMBG.getStyleClass().add("neispravno");
 

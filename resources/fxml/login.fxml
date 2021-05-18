@@ -30,7 +30,7 @@
                   <Insets left="175.0" top="35.0" />
                </VBox.margin>
             </ImageView>
-            <TextField fx:id="fldUsername" alignment="TOP_CENTER" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0" promptText="Username">
+            <TextField fx:id="fldEmail" alignment="TOP_CENTER" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0" promptText="Email">
                <VBox.margin>
                   <Insets left="100.0" right="100.0" top="20.0" />
                </VBox.margin>
