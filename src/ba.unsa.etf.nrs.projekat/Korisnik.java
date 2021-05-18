@@ -20,7 +20,7 @@ public class Korisnik {
         this.rokVazenjaLicence = rokVazenjaLicence;
     }
 
-    public Korisnik(String ime, String prezime, String imeOca, String tipKorisnika, Integer jmbg) {
+    public Korisnik(String ime, String prezime, String imeOca,  Integer jmbg, String tipKorisnika) {
         this.ime = ime;
         this.prezime = prezime;
         this.imeOca = imeOca;

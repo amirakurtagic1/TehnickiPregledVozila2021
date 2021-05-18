@@ -10,7 +10,7 @@ public class TehnickiPregledDAO {
     private Connection conn;
     private static TehnickiPregledDAO instance;
 
-    private PreparedStatement sviKorisniciUpit, kreirajAdministratoraUpit, maxIdUpit;
+    private PreparedStatement sviKorisniciUpit, kreirajKorisnikaUpit, maxIdUpit;
     public static TehnickiPregledDAO getInstance() {
         if (instance == null) instance = new TehnickiPregledDAO();
         return instance;
@@ -37,7 +37,7 @@ public class TehnickiPregledDAO {
         }
 
         try{
-            kreirajAdministratoraUpit = conn.prepareStatement("insert into Korisnik(id, ime, prezime, ime_oca, jmbg, datum_polaganja_strucnog_ispita, mjesto_polaganja_strucnog_ispita, broj_licence, datum_roka_vazenja_licence, tip) values (?,?,?,?,?,?,?,?,?,?)");
+            kreirajKorisnikaUpit = conn.prepareStatement("insert into Korisnik(id, ime, prezime, ime_oca, jmbg, datum_polaganja_strucnog_ispita, mjesto_polaganja_strucnog_ispita, broj_licence, datum_roka_vazenja_licence, tip) values (?,?,?,?,?,?,?,?,?,?)");
             maxIdUpit = conn.prepareStatement("select MAX(id)+1 from Korisnik");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -97,17 +97,32 @@ public class TehnickiPregledDAO {
                 id = rs.getInt(1);
             }
 
-            kreirajAdministratoraUpit.setInt(1, id);
-            kreirajAdministratoraUpit.setString(2, korisnik.getIme());
-            kreirajAdministratoraUpit.setString(3, korisnik.getPrezime());
-            kreirajAdministratoraUpit.setString(4, korisnik.getImeOca());
-            kreirajAdministratoraUpit.setInt(5, korisnik.getJmbg());
-            kreirajAdministratoraUpit.setDate(6, Date.valueOf(korisnik.getDatumPolaganjaStrucnogIspita()));
-            kreirajAdministratoraUpit.setString(7, korisnik.getMjestoPolaganjaStrucnog());
-            kreirajAdministratoraUpit.setInt(8, korisnik.getBrojLicence());
-            kreirajAdministratoraUpit.setDate(9, Date.valueOf(korisnik.getRokVazenjaLicence()));
-            kreirajAdministratoraUpit.setString(10, korisnik.getTipKorisnika());
-            kreirajAdministratoraUpit.executeUpdate();
+                if(korisnik.getTipKorisnika().equals("Tehničar")) {
+                    kreirajKorisnikaUpit.setInt(1, id);
+                    kreirajKorisnikaUpit.setString(2, korisnik.getIme());
+                    kreirajKorisnikaUpit.setString(3, korisnik.getPrezime());
+                    kreirajKorisnikaUpit.setString(4, korisnik.getImeOca());
+                    kreirajKorisnikaUpit.setInt(5, korisnik.getJmbg());
+                    kreirajKorisnikaUpit.setDate(6, Date.valueOf(korisnik.getDatumPolaganjaStrucnogIspita()));
+                    kreirajKorisnikaUpit.setString(7, korisnik.getMjestoPolaganjaStrucnog());
+                    kreirajKorisnikaUpit.setInt(8, korisnik.getBrojLicence());
+                    kreirajKorisnikaUpit.setDate(9, Date.valueOf(korisnik.getRokVazenjaLicence()));
+                    kreirajKorisnikaUpit.setString(10, korisnik.getTipKorisnika());
+                    kreirajKorisnikaUpit.executeUpdate();
+                }
+                else{
+                    kreirajKorisnikaUpit.setInt(1, id);
+                    kreirajKorisnikaUpit.setString(2, korisnik.getIme());
+                    kreirajKorisnikaUpit.setString(3, korisnik.getPrezime());
+                    kreirajKorisnikaUpit.setString(4, korisnik.getImeOca());
+                    kreirajKorisnikaUpit.setInt(5, korisnik.getJmbg());
+                    kreirajKorisnikaUpit.setDate(6, null);
+                    kreirajKorisnikaUpit.setString(7, null);
+                    kreirajKorisnikaUpit.setInt(8, 0);
+                    kreirajKorisnikaUpit.setDate(9, null);
+                    kreirajKorisnikaUpit.setString(10, korisnik.getTipKorisnika());
+                    kreirajKorisnikaUpit.executeUpdate();
+                }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

@@ -167,8 +167,11 @@ public class KorisnikController {
     }
 
     public void onActionPotvrdi(ActionEvent actionEvent) {
-        if(validacija() == true && cmbTipKorisnika.getValue().equals("Tehničar")) {
+        if(validacija() == true && cmbTipKorisnika.getSelectionModel().getSelectedItem().equals("Tehničar")) {
             dao.addKorisnik(new Korisnik(fldIme.getText(), fldPrezime.getText(), fldImeOca.getText(), Integer.parseInt(fldJMBG.getText()), dateDatumPolaganjaIspita.getValue(), fldMjestoPolaganjaIspita.getText(),Integer.parseInt(fldBrojLicence.getText()), dateDatumVazenjaLicence.getValue(), cmbTipKorisnika.getSelectionModel().getSelectedItem().toString()));
+            ((Stage)imgView.getScene().getWindow()).close();
+        } else if(validacija() == true) {
+            dao.addKorisnik(new Korisnik(fldIme.getText(), fldPrezime.getText(), fldImeOca.getText(), Integer.parseInt(fldJMBG.getText()),cmbTipKorisnika.getSelectionModel().getSelectedItem().toString()));
             ((Stage)imgView.getScene().getWindow()).close();
         }
     }
