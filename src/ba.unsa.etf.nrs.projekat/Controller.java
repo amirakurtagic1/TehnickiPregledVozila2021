@@ -39,6 +39,7 @@ public class Controller {
             myStage.setTitle("Tehnički pregled vozila");
             myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             myStage.setResizable(false);
+          //  myStage.setMaximized(true);
             myStage.showAndWait();
         }
     }

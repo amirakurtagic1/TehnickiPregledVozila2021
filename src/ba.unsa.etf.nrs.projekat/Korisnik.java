@@ -4,23 +4,25 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Korisnik {
-    private String ime, prezime, imeOca, mjestoPolaganjaStrucnog, tipKorisnika;
-    private Integer jmbg, brojLicence;
+    private String ime, prezime, imeOca, mjestoPolaganjaStrucnog, tipKorisnika, email, brojLicence, password;
+    private Integer jmbg;
     private LocalDate datumPolaganjaStrucnogIspita, rokVazenjaLicence;
 
-    public Korisnik(String ime, String prezime, String imeOca, Integer jmbg, LocalDate datumPolaganjaStrucnogIspita, String mjestoPolaganjaStrucnog, Integer brojLicence, LocalDate rokVazenjaLicence, String tipKorisnika) {
+    public Korisnik(String ime, String prezime, String email, String password, String tipKorisnika, String imeOca, Integer jmbg,LocalDate datumPolaganjaStrucnogIspita,String mjestoPolaganjaStrucnog, String brojLicence, LocalDate rokVazenjaLicence) {
         this.ime = ime;
         this.prezime = prezime;
         this.imeOca = imeOca;
         this.mjestoPolaganjaStrucnog = mjestoPolaganjaStrucnog;
         this.tipKorisnika = tipKorisnika;
-        this.jmbg = jmbg;
+        this.email = email;
         this.brojLicence = brojLicence;
+        this.jmbg = jmbg;
+        this.password = password;
         this.datumPolaganjaStrucnogIspita = datumPolaganjaStrucnogIspita;
         this.rokVazenjaLicence = rokVazenjaLicence;
     }
 
-    public Korisnik(String ime, String prezime, String imeOca,  Integer jmbg, String tipKorisnika) {
+    public Korisnik(String ime, String prezime, String imeOca, Integer jmbg, String tipKorisnika) {
         this.ime = ime;
         this.prezime = prezime;
         this.imeOca = imeOca;
@@ -76,12 +78,28 @@ public class Korisnik {
         this.jmbg = jmbg;
     }
 
-    public Integer getBrojLicence() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBrojLicence() {
         return brojLicence;
     }
 
-    public void setBrojLicence(Integer brojLicence) {
+    public void setBrojLicence(String brojLicence) {
         this.brojLicence = brojLicence;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LocalDate getDatumPolaganjaStrucnogIspita() {

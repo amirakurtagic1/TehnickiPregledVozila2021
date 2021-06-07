@@ -105,7 +105,7 @@ public class TehnickiPregledDAO {
                     kreirajKorisnikaUpit.setInt(5, korisnik.getJmbg());
                     kreirajKorisnikaUpit.setDate(6, Date.valueOf(korisnik.getDatumPolaganjaStrucnogIspita()));
                     kreirajKorisnikaUpit.setString(7, korisnik.getMjestoPolaganjaStrucnog());
-                    kreirajKorisnikaUpit.setInt(8, korisnik.getBrojLicence());
+                    kreirajKorisnikaUpit.setString(8, korisnik.getBrojLicence());
                     kreirajKorisnikaUpit.setDate(9, Date.valueOf(korisnik.getRokVazenjaLicence()));
                     kreirajKorisnikaUpit.setString(10, korisnik.getTipKorisnika());
                     kreirajKorisnikaUpit.executeUpdate();

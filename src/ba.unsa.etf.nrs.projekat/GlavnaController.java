@@ -34,7 +34,8 @@ public class GlavnaController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/unosKorisnika.fxml"));
             Parent root = loader.load();
             myStage.setTitle("Tehnički pregled vozila");
-            myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            //myStage.initOwner(imgViewLogo.getScene().getWindow());
+             myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             myStage.setResizable(false);
             myStage.showAndWait();
     }
