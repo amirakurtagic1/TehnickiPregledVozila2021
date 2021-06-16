@@ -1,4 +1,4 @@
-package ba.unsa.etf.nrs.projekat;
+package ba.unsa.etf.nrs.projekat.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -51,16 +51,40 @@ public class GlavnaController {
     public void onActionKreirajIzvjestaj(ActionEvent actionEvent) {
     }
 
-    public void onActionUvidPregleda(ActionEvent actionEvent) {
+    public void onActionUvidPregleda(ActionEvent actionEvent) throws IOException {
+        Stage myStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/uvidUPreglede.fxml"));
+        Parent root = loader.load();
+        myStage.setTitle("Uvid u preglede");
+        //myStage.initOwner(imgViewLogo.getScene().getWindow());
+        myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        myStage.setResizable(false);
+        myStage.showAndWait();
     }
 
-    public void onActionPokaziPostojeceKorisnike(ActionEvent actionEvent) {
+    public void onActionPokaziPostojeceKorisnike(ActionEvent actionEvent) throws IOException {
+        Stage myStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/postojeciKorisnici.fxml"));
+        Parent root = loader.load();
+        myStage.setTitle("Postojeći korisnici");
+        //myStage.initOwner(imgViewLogo.getScene().getWindow());
+        myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        myStage.setResizable(false);
+        myStage.showAndWait();
     }
 
     public void onActionKreirajPregled(ActionEvent actionEvent) {
     }
 
-    public void onActionDodijeliPregled(ActionEvent actionEvent) {
+    public void onActionDodijeliPregled(ActionEvent actionEvent) throws IOException {
+        Stage myStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/dodjelaPregleda.fxml"));
+        Parent root = loader.load();
+        myStage.setTitle("Dodjela pregleda");
+        //myStage.initOwner(imgViewLogo.getScene().getWindow());
+        myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        myStage.setResizable(false);
+        myStage.showAndWait();
     }
 
     public void onActionIzlaz(ActionEvent actionEvent) {

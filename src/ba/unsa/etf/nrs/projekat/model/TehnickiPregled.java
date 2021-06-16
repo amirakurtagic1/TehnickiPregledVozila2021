@@ -1,14 +1,18 @@
-package ba.unsa.etf.nrs.projekat;
+package ba.unsa.etf.nrs.projekat.model;
+
+import java.time.LocalDate;
 
 public class TehnickiPregled {
 
-    private Integer faultyVehiclesRecordId, etaNumber, enginePower, cubic, weight, doorCount, ecoCategory, seatsNumber, v;
-    private String id, ownershipNumber, ownerId, contactNumber, transactionNumber, chassisNumber, motorNumber, licensePlate, barCode, color,
+    private Integer etaNumber, enginePower, cubic, weight, doorCount, ecoCategory, seatsNumber, v;
+    private String faultyVehiclesRecordId, technician_id, id, ownershipNumber, ownerId, contactNumber, transactionNumber, chassisNumber, motorNumber, licensePlate, barCode, color,
             drive, fuelType, transmissionType, carCategory, manufacturer, model;
+    private LocalDate datumKreiranja;
 
 
-    public TehnickiPregled(Integer faultyVehiclesRecordId, String id, String ownershipNumber, String ownerId, String contactNumber, String transactionNumber, String chassisNumber, String motorNumber, String licensePlate, String barCode,Integer etaNumber, Integer enginePower, String color,Integer cubic, Integer weight, String drive, String fuelType,Integer doorCount, String transmissionType, String carCategory,Integer ecoCategory, Integer seatsNumber, String manufacturer, String model, Integer v) {
+    public TehnickiPregled(String faultyVehiclesRecordId, String technician_id,String id, String ownershipNumber, String ownerId, String contactNumber, String transactionNumber, String chassisNumber, String motorNumber, String licensePlate, String barCode,Integer etaNumber, Integer enginePower, String color,Integer cubic, Integer weight, String drive, String fuelType,Integer doorCount, String transmissionType, String carCategory,Integer ecoCategory, Integer seatsNumber, String manufacturer, String model, Integer v, LocalDate datumKreiranja) {
         this.faultyVehiclesRecordId = faultyVehiclesRecordId;
+        this.technician_id = technician_id;
         this.etaNumber = etaNumber;
         this.enginePower = enginePower;
         this.cubic = cubic;
@@ -33,14 +37,31 @@ public class TehnickiPregled {
         this.carCategory = carCategory;
         this.manufacturer = manufacturer;
         this.model = model;
+        this.datumKreiranja = datumKreiranja;
     }
 
-    public Integer getFaultyVehiclesRecordId() {
+    public LocalDate getDatumKreiranja() {
+        return datumKreiranja;
+    }
+
+    public void setDatumKreiranja(LocalDate datumKreiranja) {
+        this.datumKreiranja = datumKreiranja;
+    }
+
+    public String getFaultyVehiclesRecordId() {
         return faultyVehiclesRecordId;
     }
 
-    public void setFaultyVehiclesRecordId(Integer faultyVehiclesRecordId) {
+    public void setFaultyVehiclesRecordId(String faultyVehiclesRecordId) {
         this.faultyVehiclesRecordId = faultyVehiclesRecordId;
+    }
+
+    public String getTechnician_id() {
+        return technician_id;
+    }
+
+    public void setTechnician_id(String technician_id) {
+        this.technician_id = technician_id;
     }
 
     public Integer getEtaNumber() {

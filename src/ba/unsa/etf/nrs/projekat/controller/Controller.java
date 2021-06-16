@@ -1,5 +1,8 @@
-package ba.unsa.etf.nrs.projekat;
+package ba.unsa.etf.nrs.projekat.controller;
 
+import ba.unsa.etf.nrs.projekat.model.Korisnik;
+import ba.unsa.etf.nrs.projekat.model.TehnickiPregled;
+import ba.unsa.etf.nrs.projekat.model.TehnickiPregledDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -22,10 +26,17 @@ public class Controller {
     public Label porukaLogin;
     public Button btnDalje;
     public ImageView imgView;
+    public TehnickiPregledDAO dao;
 
     public void initialize() {
+        dao = TehnickiPregledDAO.getInstance();
+        dao.getExams();
+        dao.getUsers();
+        dao.addUser(new Korisnik("ime","prezime","imeOca","mjestoPolaganjaStrucnog", "email", "brojLicence","jmbg", 1, LocalDate.now(),LocalDate.now(),LocalDate.now()));
         Image image = new Image(getClass().getResource("/img/resizeimage.jpg").toString());
         imgView.setImage(image);
+
+
     }
 
     public void onActionDalje(ActionEvent actionEvent) throws IOException {

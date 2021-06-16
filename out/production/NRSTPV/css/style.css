@@ -9,7 +9,9 @@
 #imgView {
     -fx-graphic: url("/img/resizeimage.jpg");
 }
-
+#imgView1{
+    -fx-graphic: url("/img/rsz_etpv.jpg");
+}
 .ispravno{
     -fx-background-color: lightgreen;
 }

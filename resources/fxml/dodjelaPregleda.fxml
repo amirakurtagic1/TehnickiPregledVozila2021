@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="811.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="ba.unsa.etf.nrs.projekat.controller.dodjelaPregledaController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="160.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ImageView fx:id="imgViewLogo" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+         <GridPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </GridPane.margin>
+      </ImageView>
+      <Label text="Dodjela pregleda" GridPane.columnIndex="1" GridPane.columnSpan="6">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <HBox maxHeight="50.0" minHeight="50.0" prefHeight="50.0" GridPane.columnSpan="5" GridPane.rowIndex="1">
+         <children>
+            <TextField fx:id="fldPretragaPoIdPregleda" minHeight="30.0">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+            <TextField fx:id="fldPretragaPoPodnosiocuZahtjava" minHeight="30.0">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+            <TextField fx:id="fldPretragaPoDatumu" minHeight="30.0">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="2" GridPane.rowSpan="5">
+        <columns>
+          <TableColumn fx:id="columnIDPregleda" prefWidth="184.0" text="ID Pregleda" />
+          <TableColumn fx:id="columnPodnosiocZahtjeva" prefWidth="184.0" text="Ponosioc zahtjeva" />
+            <TableColumn fx:id="columnDatum" prefWidth="184.0" text="Datum" />
+        </columns>
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </TableView>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="5">
+         <children>
+            <Button maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" mnemonicParsing="false" onAction="#onActionDodijeliPregled" prefHeight="40.0" prefWidth="180.0" text="Dodijeli pregled">
+               <VBox.margin>
+                  <Insets left="60.0" top="180.0" />
+               </VBox.margin>
+            </Button>
+         </children></VBox>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="8">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#onActionCancel" prefHeight="30.0" prefWidth="100.0" text="Izlaz" />
+        </buttons>
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </ButtonBar>
+   </children>
+</GridPane>

@@ -1,19 +1,17 @@
-package ba.unsa.etf.nrs.projekat;
+package ba.unsa.etf.nrs.projekat.controller;
 
+import ba.unsa.etf.nrs.projekat.model.Korisnik;
+import ba.unsa.etf.nrs.projekat.model.TehnickiPregledDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
-import java.util.Locale;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 public class KorisnikController {
@@ -29,16 +27,20 @@ public class KorisnikController {
     public DatePicker dateDatumVazenjaLicence;
     public Button btnOtkazi;
     public Button btnPotvrdi;
+    public TextField fldEmail;
+    public PasswordField fldPassword;
+    public PasswordField fldRepeatPassword;
 
     private TehnickiPregledDAO dao;
 
     public void initialize(){
         Image image = new Image(getClass().getResource("/img/resizeimage.jpg").toString());
         imgView.setImage(image);
-        ObservableList<String> tipoviKorisnika = FXCollections.observableArrayList("Direktor", "Administrator", "Tehničar");
+        ObservableList<String> tipoviKorisnika = FXCollections.observableArrayList("Administrator", "Tehničar");
         cmbTipKorisnika.setItems(tipoviKorisnika);
        // cmbTipKorisnika.getSelectionModel().selectFirst();
         dao = TehnickiPregledDAO.getInstance();
+        dao.addUser(new Korisnik("ime","prezime","imeOca","mjestoPolaganjaStrucnog", "email", "brojLicence","jmbg", 1,LocalDate.now(),LocalDate.now(),LocalDate.now()));
 
         dateDatumPolaganjaIspita.setValue(LocalDate.now());
         dateDatumVazenjaLicence.setValue(LocalDate.now());
@@ -169,7 +171,8 @@ public class KorisnikController {
 
     public void onActionPotvrdi(ActionEvent actionEvent) {
         if(validacija() == true && cmbTipKorisnika.getSelectionModel().getSelectedItem().equals("Tehničar")) {
-            //dao.addKorisnik(new Korisnik(fldIme.getText(), fldPrezime.getText(), fldImeOca.getText(), Integer.parseInt(fldJMBG.getText()), dateDatumPolaganjaIspita.getValue(), fldMjestoPolaganjaIspita.getText(),Integer.parseInt(fldBrojLicence.getText()), dateDatumVazenjaLicence.getValue(), cmbTipKorisnika.getSelectionModel().getSelectedItem().toString()));
+            dao.addKorisnik(new Korisnik(null, fldIme.getText(), fldPrezime.getText(), fldImeOca.getText(), fldMjestoPolaganjaIspita.getText(), fldEmail.getText(), fldBrojLicence.getText(),
+                    fldPassword.getText(), fldJMBG.getText(), 1, dateDatumPolaganjaIspita.getValue(), dateDatumVazenjaLicence.getValue(), LocalDate.now()));
             ((Stage)imgView.getScene().getWindow()).close();
         } else if(validacija() == true) {
            // dao.addKorisnik(new Korisnik(fldIme.getText(), fldPrezime.getText(), fldImeOca.getText(), Integer.parseInt(fldJMBG.getText()),cmbTipKorisnika.getSelectionModel().getSelectedItem().toString()));
