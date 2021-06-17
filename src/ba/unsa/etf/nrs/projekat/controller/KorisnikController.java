@@ -116,6 +116,26 @@ public class KorisnikController {
             fldMjestoPolaganjaIspita.getStyleClass().remove("neispravno");
             fldMjestoPolaganjaIspita.getStyleClass().add("ispravno");
         }
+        if(fldEmail.getText().equals("")){
+            fldEmail.getStyleClass().remove("ispravno");
+            fldEmail.getStyleClass().add("neispravno");
+        }else{
+            fldEmail.getStyleClass().remove("neispravno");
+            fldEmail.getStyleClass().add("ispravno");
+        }if(fldPassword.getText().equals("")){
+            fldPassword.getStyleClass().remove("ispravno");
+            fldPassword.getStyleClass().add("neispravno");
+        }else{
+            fldPassword.getStyleClass().remove("neispravno");
+            fldPassword.getStyleClass().add("ispravno");
+        }if(fldRepeatPassword.getText().equals("")){
+            fldRepeatPassword.getStyleClass().remove("ispravno");
+            fldRepeatPassword.getStyleClass().add("neispravno");
+        }else{
+            fldRepeatPassword.getStyleClass().remove("neispravno");
+            fldRepeatPassword.getStyleClass().add("ispravno");
+        }
+
         if(dateDatumPolaganjaIspita.getValue().isAfter(LocalDate.now().minusDays(1))){
             dateDatumPolaganjaIspita.getStyleClass().remove("ispravno");
             dateDatumPolaganjaIspita.getStyleClass().add("neispravno");
@@ -130,6 +150,7 @@ public class KorisnikController {
             dateDatumVazenjaLicence.getStyleClass().remove("neispravno");
             dateDatumVazenjaLicence.getStyleClass().add("ispravno");
         }
+
     }
     private void validacijaNonTehnicar(){
         if(fldIme.getText().equals("")){

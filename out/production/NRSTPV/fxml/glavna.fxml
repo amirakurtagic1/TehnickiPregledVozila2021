@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.nrs.projekat.controller.GlavnaController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.nrs.projekat.controller.GlavnaController">
  <stylesheets>
      <URL value="@/css/style.css" />
  </stylesheets>
@@ -71,7 +71,7 @@
             </Button>
          </children>
          <GridPane.margin>
-            <Insets left="100.0" />
+            <Insets />
          </GridPane.margin>
       </VBox>
       <Button mnemonicParsing="false" onAction="#onActionIzlaz" prefHeight="26.0" prefWidth="83.0" text="Izlaz" GridPane.columnIndex="3" GridPane.rowIndex="9">

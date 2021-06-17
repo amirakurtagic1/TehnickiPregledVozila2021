@@ -30,9 +30,9 @@ public class Controller {
 
     public void initialize() {
         dao = TehnickiPregledDAO.getInstance();
-        dao.getExams();
-        dao.getUsers();
-        dao.addUser(new Korisnik("ime","prezime","imeOca","mjestoPolaganjaStrucnog", "email", "brojLicence","jmbg", 1, LocalDate.now(),LocalDate.now(),LocalDate.now()));
+       //dao.getExams();
+       // dao.getUsers();
+       // dao.addUser(new Korisnik("ime","prezime","imeOca","mjestoPolaganjaStrucnog", "email", "brojLicence","jmbg", 1, LocalDate.now(),LocalDate.now(),LocalDate.now()));
         Image image = new Image(getClass().getResource("/img/resizeimage.jpg").toString());
         imgView.setImage(image);
 

@@ -42,6 +42,7 @@ public class StatistikaController {
     public TableColumn columnTipKorisnika;
     public TableView<Korisnik> tableView;
     public TehnickiPregledDAO dao;
+    public TableView<TehnickiPregled> tableView1;
 
     public void initialize(){
 
@@ -50,13 +51,13 @@ public class StatistikaController {
             imgViewLogo.setImage(image);
 
             dao = TehnickiPregledDAO.getInstance();
-        ObservableList<Korisnik> listOfKorisnika  = FXCollections.observableArrayList(dao.getUsers());
-        System.out.println(listOfKorisnika);
-     /*  tableView.setItems(listOfKorisnika);
-        columnIDZaposlenog.setCellValueFactory(new PropertyValueFactory("id"));
-        columnImeIPrezimeZaposlenog.setCellValueFactory(new PropertyValueFactory("ime"));
-        columnTipKorisnika.setCellValueFactory(new PropertyValueFactory("tipKorisnika"));
-*/
+        ObservableList<TehnickiPregled> listaTehnickihPregleda  = FXCollections.observableArrayList(dao.getExams());
+        System.out.println(listaTehnickihPregleda);
+           tableView1.setItems(listaTehnickihPregleda);
+        columnIdIzvjestaja.setCellValueFactory(new PropertyValueFactory("id"));
+        columnPodnosilacZahtjeva.setCellValueFactory(new PropertyValueFactory("ownerId"));
+        columnDatum.setCellValueFactory(new PropertyValueFactory("datumKreiranja"));
+
 
 
     }

@@ -71,7 +71,7 @@
             </TextField>
          </children>
       </HBox>
-      <TableView maxHeight="400.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="3" GridPane.rowSpan="5">
+      <TableView fx:id="tableView1" maxHeight="400.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="3" GridPane.rowSpan="5">
         <columns>
           <TableColumn fx:id="columnIdIzvjestaja" minWidth="200.0" prefWidth="200.0" text="ID izvještaja" />
           <TableColumn fx:id="columnPodnosilacZahtjeva" minWidth="200.0" prefWidth="200.0" text="Podnosilac zahtjeva" />
